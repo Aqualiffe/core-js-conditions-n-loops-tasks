@@ -122,8 +122,47 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let res = '';
+  if (Math.floor(num / 10) === 3) {
+    res += 'XXX';
+  } else if (Math.floor(num / 10) === 2) {
+    res += 'XX';
+  } else if (Math.floor(num / 10) === 1) {
+    res += 'X';
+  }
+  switch (num % 10) {
+    case 1:
+      res += 'I';
+      break;
+    case 2:
+      res += 'II';
+      break;
+    case 3:
+      res += 'III';
+      break;
+    case 4:
+      res += 'IV';
+      break;
+    case 5:
+      res += 'V';
+      break;
+    case 6:
+      res += 'VI';
+      break;
+    case 7:
+      res += 'VII';
+      break;
+    case 8:
+      res += 'VIII';
+      break;
+    case 9:
+      res += 'IX';
+      break;
+    default:
+      res += '';
+  }
+  return res;
 }
 
 /**
@@ -141,8 +180,57 @@ function convertToRomanNumerals(/* num */) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let res = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (numberStr[i]) {
+      case '-':
+        res += 'minus';
+        break;
+      case '.':
+        res += 'point';
+        break;
+      case ',':
+        res += 'point';
+        break;
+      case '0':
+        res += 'zero';
+        break;
+      case '1':
+        res += 'one';
+        break;
+      case '2':
+        res += 'two';
+        break;
+      case '3':
+        res += 'three';
+        break;
+      case '4':
+        res += 'four';
+        break;
+      case '5':
+        res += 'five';
+        break;
+      case '6':
+        res += 'six';
+        break;
+      case '7':
+        res += 'seven';
+        break;
+      case '8':
+        res += 'eight';
+        break;
+      case '9':
+        res += 'nine';
+        break;
+      default:
+        res += '';
+    }
+    if (i !== numberStr.length - 1) {
+      res += ' ';
+    }
+  }
+  return res;
 }
 
 /**
